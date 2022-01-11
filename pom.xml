@@ -19,7 +19,7 @@
         <!-- TODO: Add the URL to your own tomcat server. Used to deploy your WAR-file -->
         <!-- IMPORTANT-1: If your server uses https (via NGINX) use your DOMAIN NAME and https below: -->
         <!-- IMPORTANT-2: Observe we are NOT using /manager/html but /manager/text for script uploads -->
-        <remote.server>http://164.90.227.175:8081/manager/text</remote.server>
+        <remote.server>http://165.232.118.125:8081/manager/text</remote.server>
 
         <!--TODO: add DB name below -->
 
