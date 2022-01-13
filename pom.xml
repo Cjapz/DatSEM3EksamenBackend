@@ -23,12 +23,11 @@
 
         <!--TODO: add DB name below -->
 
-        <db.name>SP1</db.name>
+        <db.name>startcode</db.name>
 
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>org.mindrot</groupId>
             <artifactId>jbcrypt</artifactId>

@@ -31,9 +31,9 @@ public class ApplicationConfig extends Application {
         resources.add(security.RolesAllowedFilter.class);
         resources.add(security.errorhandling.AuthenticationExceptionMapper.class);
         resources.add(security.errorhandling.NotAuthorizedExceptionMapper.class);
-        resources.add(rest.OwnerRessource.class);
-        resources.add(rest.BoatRessource.class);
-        resources.add(rest.HarbourRessource.class);
+        resources.add(rest.DriverRessource.class);
+        resources.add(rest.CarRessource.class);
+        resources.add(rest.RaceRessource.class);
     }
     
 }

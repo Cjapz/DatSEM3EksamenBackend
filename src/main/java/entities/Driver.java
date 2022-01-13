@@ -2,8 +2,8 @@ package entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import java.util.ArrayList;
 import java.util.List;
 @Entity
@@ -16,9 +16,6 @@ public class Driver {
     private String name;
     private String birthYear;
     private String gender;
-
-    @OneToMany
-    private List<Driver> carList = new ArrayList<>();
 
     public Driver(long id, String name, String birthYear, String gender) {
         this.id = id;

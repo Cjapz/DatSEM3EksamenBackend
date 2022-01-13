@@ -17,10 +17,8 @@ public class Race {
     private String time;
     private String location;
 
-    @ManyToMany()
-    private List<Car> carList = new ArrayList<>();
     @ManyToMany
-    private List<Driver> driverList = new ArrayList<>();
+    private List<Car> carList= new ArrayList<>();
 
     public Race() {
     }

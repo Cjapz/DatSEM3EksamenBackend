@@ -18,8 +18,10 @@ public class Car {
     private String name;
     private String year;
 
+    @ManyToMany(mappedBy = "carList")
+    private List<Race> raceList= new ArrayList<>();
     @OneToMany
-    private List<Race> carList= new ArrayList<>();
+    private List<Driver> driverList = new ArrayList<>();
 
     public Car() {
     }
