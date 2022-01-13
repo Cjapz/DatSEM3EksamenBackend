@@ -1,13 +1,14 @@
 package entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 
 
 @Entity
-@NamedQuery(name = "Boat.deleteAllRows", query = "DELETE from Boat ")
-public class Boat {
+@NamedQuery(name = "Car.deleteAllRows", query = "DELETE from Car ")
+public class Car {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,30 +16,27 @@ public class Boat {
     private String brand;
     private String make;
     private String name;
-    private String image;
+    private String year;
 
-    @ManyToMany(mappedBy = "boatList")
-    private List<Owner> ownerList;
+    @OneToMany
+    private List<Race> carList= new ArrayList<>();
 
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Harbour harbour;
-
-    public Boat() {
+    public Car() {
     }
 
-    public Boat(long id, String brand, String make, String name, String image) {
+    public Car(long id, String name, String brand, String make, String year) {
         this.id = id;
+        this.name = name;
         this.brand = brand;
         this.make = make;
-        this.name = name;
-        this.image = image;
+        this.year = year;
     }
 
-    public Boat(String brand, String make, String name) {
+    public Car(String name, String brand, String make, String year) {
+        this.name = name;
         this.brand = brand;
         this.make = make;
-        this.name = name;
+        this.year = year;
     }
 
     public long getId() {
@@ -73,11 +71,11 @@ public class Boat {
         this.name = name;
     }
 
-    public String getImage() {
-        return image;
+    public String getYear() {
+        return year;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setYear(String year) {
+        this.year = year;
     }
 }

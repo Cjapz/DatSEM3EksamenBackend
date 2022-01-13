@@ -1,43 +1,29 @@
-package entities;
+package dtos;
 
-import dtos.RaceDTO;
+import entities.Race;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import java.util.ArrayList;
 import java.util.List;
-@Entity
-public class Race {
-    private static final long serialVersionUID = 1L;
-    @Id
+
+public class RaceDTO {
     private long id;
     private String name;
     private String date;
     private String time;
     private String location;
 
-    @ManyToMany()
-    private List<Car> carList = new ArrayList<>();
-    @ManyToMany
-    private List<Driver> driverList = new ArrayList<>();
-
-    public Race() {
+    public RaceDTO(Race rm) {
+        this.id = rm.getId();
+        this.name = rm.getName();
+        this.date = rm.getDate();
+        this.time = rm.getTime();
+        this.location = rm.getLocation();
     }
 
-    public Race(long id, String name, String date, String time, String location) {
-        this.id = id;
-        this.name = name;
-        this.date = date;
-        this.time = time;
-        this.location = location;
-    }
-
-    public Race(String name, String date, String time, String location) {
-        this.name = name;
-        this.date = date;
-        this.time = time;
-        this.location = location;
+    public static List<RaceDTO> getDtos(List<Race> rms) {
+        List<RaceDTO> rmdtos = new ArrayList();
+        rms.forEach(rm -> rmdtos.add(new RaceDTO(rm)));
+        return rmdtos;
     }
 
     public long getId() {
@@ -72,7 +58,7 @@ public class Race {
         this.time = time;
     }
 
-    public String getLocation(){
+    public String getLocation() {
         return location;
     }
 

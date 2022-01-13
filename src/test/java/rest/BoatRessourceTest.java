@@ -3,8 +3,6 @@ package rest;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import dtos.BoatDTO;
-import entities.Boat;
 import entities.Role;
 import entities.User;
 import io.restassured.RestAssured;
