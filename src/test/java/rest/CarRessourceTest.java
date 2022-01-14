@@ -27,7 +27,7 @@ import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.request;
 
 
-class BoatRessourceTest {
+class CarRessourceTest {
 
     private static final int SERVER_PORT = 7777;
     private static final String SERVER_URL = "http://localhost/api";
