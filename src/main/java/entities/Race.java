@@ -2,15 +2,15 @@ package entities;
 
 import dtos.RaceDTO;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 @Entity
-public class Race {
+public class Race implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
     private String date;
@@ -18,7 +18,9 @@ public class Race {
     private String location;
 
     @ManyToMany
-    private List<Car> carList= new ArrayList<>();
+    private List<Car> carList = new ArrayList<>();
+    @ManyToMany
+    private List<Driver> driverList = new ArrayList<>();
 
     public Race() {
     }
@@ -36,6 +38,8 @@ public class Race {
         this.date = date;
         this.time = time;
         this.location = location;
+        this.carList = getCarList();
+
     }
 
     public long getId() {
@@ -76,5 +80,13 @@ public class Race {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public List<Car> getCarList() {
+        return carList;
+    }
+
+    public void setCarList(List<Car> carList) {
+        this.carList = carList;
     }
 }

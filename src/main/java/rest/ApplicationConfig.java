@@ -34,6 +34,7 @@ public class ApplicationConfig extends Application {
         resources.add(rest.DriverRessource.class);
         resources.add(rest.CarRessource.class);
         resources.add(rest.RaceRessource.class);
+
     }
     
 }

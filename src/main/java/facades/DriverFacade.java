@@ -23,6 +23,14 @@ public class DriverFacade {
         return DriverDTO.getDtos(rms);
     }
 
+    public List<DriverDTO> getDriversByRace(long id) {
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Driver> query = em.createQuery("SELECT  d FROM Driver d INNER JOIN d.raceList h WHERE h.id = :id", Driver.class);
+        query.setParameter("id", id);
+        List<Driver> rms = query.getResultList();
+        return DriverDTO.getDtos(rms);
+    }
+
     public static DriverFacade getFacadeExample(EntityManagerFactory _emf) {
         if (instance == null) {
             emf = _emf;

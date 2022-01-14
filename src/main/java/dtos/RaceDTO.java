@@ -12,6 +12,9 @@ public class RaceDTO {
     private String time;
     private String location;
 
+    public RaceDTO() {
+    }
+
     public RaceDTO(Race rm) {
         this.id = rm.getId();
         this.name = rm.getName();

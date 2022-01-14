@@ -31,4 +31,19 @@ public class RaceFacade {
         return instance;
     }
 
+    public RaceDTO create(RaceDTO raceDTO) {
+        Race race =
+                new Race(raceDTO.getName(), raceDTO.getDate(), raceDTO.getTime(), raceDTO.getLocation());
+
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.persist(race);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+        return new RaceDTO(race);
+
+    }
 }

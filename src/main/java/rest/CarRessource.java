@@ -15,7 +15,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-@Path("Car")
+@Path("car")
 public class CarRessource {
 
 
@@ -33,29 +33,9 @@ public class CarRessource {
     @GET
     @Path("getcarbyrace/{name}")
     @Produces({MediaType.APPLICATION_JSON})
-    public Response getBoatByHarbour(@PathParam("name") String name) {
+    public Response getCarByRace(@PathParam("name") String name) {
         List<CarDTO> rn = FACADE.getCarByRace(name);
         return Response.ok().entity(GSON.toJson(rn)).build();
     }
-
-    @GET
-    @Path("getdriversbyrace/{name}")
-    @Produces({MediaType.APPLICATION_JSON})
-    public Response getDriversByRace(@PathParam("name") String name) {
-        List<DriverDTO> rn = FACADE.getDriversByRace(name);
-        return Response.ok().entity(GSON.toJson(rn)).build();
-    }
-
-    @POST
-    @Path("createrace")
-    @Produces({MediaType.APPLICATION_JSON})
-    @Consumes ({MediaType.APPLICATION_JSON})
-    @RolesAllowed("admin")
-    public Response createRace(RaceDTO raceDTO) {
-        raceDTO = FACADE.create(raceDTO);
-        return Response.ok().entity(GSON.toJson(raceDTO)).build();
-
-    }
-
 
 }

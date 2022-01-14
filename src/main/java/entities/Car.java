@@ -19,9 +19,10 @@ public class Car {
     private String year;
 
     @ManyToMany(mappedBy = "carList")
-    private List<Race> raceList= new ArrayList<>();
-    @OneToMany
-    private List<Driver> driverList = new ArrayList<>();
+    private List<Race> raceList = new ArrayList<>();
+
+    public Car(String tekst, String mere_tekst, String endnu_mere_tekst) {
+    }
 
     public Car() {
     }
@@ -80,4 +81,5 @@ public class Car {
     public void setYear(String year) {
         this.year = year;
     }
+
 }

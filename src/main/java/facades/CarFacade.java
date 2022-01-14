@@ -36,28 +36,5 @@ public class CarFacade {
         return CarDTO.getDtos(rms);
     }
 
-    public List<DriverDTO> getDriversByRace(String name) {
-        EntityManager em = emf.createEntityManager();
-        TypedQuery<Driver> query = em.createQuery("SELECT  p FROM Driver p INNER JOIN p.raceList h WHERE h.name = :name", Driver.class);
-        query.setParameter("name", name);
-        List<Driver> rms = query.getResultList();
-        return DriverDTO.getDtos(rms);
-
-    }
-
-    public RaceDTO create(RaceDTO raceDTO) {
-        Race race =
-                new Race(raceDTO.getName(), raceDTO.getDate(), raceDTO.getTime(), raceDTO.getLocation());
-
-        EntityManager em = emf.createEntityManager();
-        try {
-            em.getTransaction().begin();
-            em.persist(race);
-            em.getTransaction().commit();
-        } finally {
-            em.close();
-        }
-        return new RaceDTO(race);
-
-    }
 }
+
